@@ -14,7 +14,6 @@ export class ProducerService implements OnModuleInit,OnApplicationShutdown{
         brokers:[this.configModule.get('KAFKA_URL')]
     })
     
-    
     private readonly producer:Producer=this.kafka.producer()
     
     async  onModuleInit() {

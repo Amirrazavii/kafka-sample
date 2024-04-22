@@ -1,14 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Query } from '@nestjs/common';
 import {ProducerService} from 'src/kafka/producer.service'
+import { QueryDto } from './kafka/query.dto';
 
 @Injectable()
 export class AppService {
   constructor(private readonly producerService:ProducerService){}
-  getHello(): string {
+  getHello(query): string {
+    console.log(query);
+    
     this.producerService.produce({
       topic:"test",
       messages:[{
-        value:'hello'
+        value:JSON.stringify(query)
       }]
 
     })

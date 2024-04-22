@@ -13,15 +13,11 @@ export class TestConsumer implements OnModuleInit{
                 console.log({
                     topic:topic,
                     partition: partition,
-                    value:message.value.toString()
-                    // value:message.value
-
+                    value:JSON.parse(message.value.toString())
                 });
                 
             }
         })
        
     }
-  
-
 }
